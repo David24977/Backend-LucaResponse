@@ -18,8 +18,9 @@ public class CorsConfig {
 
                 registry.addMapping("/**")
                         .allowedOrigins("https://lucaresponse.vercel.app")
-                        .allowedMethods("*")
-                        .allowedHeaders("*");
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .maxAge(3600);
             }
         };
     }

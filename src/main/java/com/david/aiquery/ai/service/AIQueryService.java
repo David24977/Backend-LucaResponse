@@ -4,5 +4,5 @@ import com.david.aiquery.ai.dto.AIQueryResponseDto;
 
 public interface AIQueryService {
 
-    AIQueryResponseDto generateQueryResponse(String query);
+    AIQueryResponseDto generateQueryResponse(String query, String conversationId);
 }

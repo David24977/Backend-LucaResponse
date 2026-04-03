@@ -17,7 +17,10 @@ public class AIQueryController {
 
     @PostMapping("/query")
     public AIQueryResponseDto generateQueryResponse(@Valid @RequestBody AIQueryRequestDto requestDto){
-        return aiQueryService.generateQueryResponse(requestDto.query());
+        return aiQueryService.generateQueryResponse(
+                requestDto.query(),
+                requestDto.conversationId()
+        );
     }
 
     //Comprobar que el backend está funcionando
