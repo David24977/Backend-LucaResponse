@@ -15,7 +15,7 @@ public class AIConfig {
     @Bean
     public ChatMemory chatMemory() {
         return MessageWindowChatMemory.builder()
-                .maxMessages(20)
+                .maxMessages(12)
                 .build();
     }
 
@@ -25,7 +25,7 @@ public class AIConfig {
         // IMPORTANTE: Si .googleSearch() te da error, usa .setGoogleSearch() después del build o busca el nombre exacto en tu IDE
         var options = GoogleGenAiChatOptions.builder()
                 .model("gemini-3.1-flash-lite-preview")
-                .temperature(0.0)
+                .temperature(0.2)
                 .build();
 
         // Este es el truco para activar el Grounding en la versión 1.1.2

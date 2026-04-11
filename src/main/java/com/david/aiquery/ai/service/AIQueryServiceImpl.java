@@ -17,24 +17,23 @@ public class AIQueryServiceImpl implements AIQueryService {
 
     @Override
     public AIQueryResponseDto generateQueryResponse(String query, String conversationId) {
-        String userPrompt = AIPrompts.USER_PROMPT.formatted(query);
 
-        String response = chatClient
-                .prompt()
-                .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
-                .system(AIPrompts.SYSTEM_PROMPT)
-                .user(userPrompt)
-                .call()
-                .content();
+        try {
+            String response = chatClient
+                    .prompt()
+                    .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
+                    .system(AIPrompts.SYSTEM_PROMPT)
+                    .user(query)
+                    .call()
+                    .content();
 
-        if (response == null) {
-            throw new RuntimeException("AI returned empty response");
+            if (response == null || response.isBlank()) {
+                throw new IllegalStateException("AI returned empty response");
+            }
+
+            return new AIQueryResponseDto(response.trim());
+        } catch (Exception e) {
+            throw new RuntimeException("Error calling AI service", e);
         }
-
-        response = response
-                .replaceAll("\\s+", " ")
-                .trim();
-
-        return new AIQueryResponseDto(response);
     }
 }
