@@ -18,8 +18,7 @@ public class AIQueryServiceImpl implements AIQueryService {
     @Override
     public AIQueryResponseDto generateQueryResponse(String query, String conversationId) {
 
-        try {
-            String response = chatClient
+        String response = chatClient
                     .prompt()
                     .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
                     .system(AIPrompts.SYSTEM_PROMPT)
@@ -32,8 +31,6 @@ public class AIQueryServiceImpl implements AIQueryService {
             }
 
             return new AIQueryResponseDto(response.trim());
-        } catch (Exception e) {
-            throw new RuntimeException("Error calling AI service", e);
-        }
+
     }
 }

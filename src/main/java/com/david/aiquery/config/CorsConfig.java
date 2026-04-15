@@ -17,7 +17,9 @@ public class CorsConfig {
             public void addCorsMappings(@NonNull CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("https://lucaresponse.vercel.app",
+                        .allowedOrigins("https://lucaresponse.com",
+                                        "https://www.lucaresponse.com",
+                                        "https://lucaresponse.vercel.app",
                                         "http://localhost:5173")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")

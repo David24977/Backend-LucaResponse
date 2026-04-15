@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 
 public record AIQueryRequestDto(
         @NotBlank(message = "Query cannot be empty")
-        @Size(max = 1000, message = "Query too long")
+        @Size(max = 1000, message = "Query too long(pregunta demasiado larga)")
         String query,
         @NotBlank
         String conversationId
