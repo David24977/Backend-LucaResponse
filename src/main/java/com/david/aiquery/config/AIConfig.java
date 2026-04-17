@@ -21,14 +21,15 @@ public class AIConfig {
 
     @Bean
     public ChatClient chatClient(ChatModel chatModel, ChatMemory chatMemory) {
-        // Creamos las opciones manualmente
-        // IMPORTANTE: Si .googleSearch() te da error, usa .setGoogleSearch() después del build o busca el nombre exacto en tu IDE
+
+        // Creamos las opciones manualmente, mejor que en properties
         var options = GoogleGenAiChatOptions.builder()
                 .model("gemini-3.1-flash-lite-preview")
-                .temperature(0.2)
+                .maxOutputTokens(2000)
+                .temperature(0.4)
                 .build();
 
-        // Este es el truco para activar el Grounding en la versión 1.1.2
+        // Este es el método para activar el Grounding en la versión 1.1.2
         options.setGoogleSearchRetrieval(true);
 
         return ChatClient.builder(chatModel)
