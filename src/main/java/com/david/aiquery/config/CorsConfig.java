@@ -17,10 +17,11 @@ public class CorsConfig {
             public void addCorsMappings(@NonNull CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("https://lucaresponse.com",
+                        .allowedOriginPatterns("https://lucaresponse.com",
                                         "https://www.lucaresponse.com",
                                         "https://lucaresponse.vercel.app",
-                                        "http://localhost:5173")
+                                        "http://localhost:5173",
+                                        "https://*.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .maxAge(3600);
