@@ -4,7 +4,7 @@ AI-powered REST API built with Spring Boot that processes user queries and gener
 
 ## Features
 
-* Integration with Groq (Llama 3)
+* Integration with gemini-3.1-flash-lite
 * Clean architecture (Controller → Service → DTO)
 * Global exception handling
 * CORS configuration for frontend integration
@@ -21,7 +21,7 @@ AI-powered REST API built with Spring Boot that processes user queries and gener
 
 ```json
 {
-  "query": "Who is Lionel Messi?"
+  "query": "Who is Alan Turing?"
 }
 ```
 
@@ -29,7 +29,7 @@ AI-powered REST API built with Spring Boot that processes user queries and gener
 
 ```json
 {
-  "response": "Lionel Messi is an Argentine football player..."
+  "response": "Alan turing  was an English mathematician, computer scientist,..."
 }
 ```
 
@@ -48,14 +48,14 @@ GET /ai/health
 Environment variables:
 
 ```env
-OPENAI_API_KEY=your_groq_api_key
+OPENAI_API_KEY=your_gemini_api_key
 ```
 
 Application properties:
 
 ```properties
 server.port=${PORT:8080}
-spring.ai.openai.api-key=${OPENAI_API_KEY}
+spring.ai.openai.api-key=${GEMINI_API_KEY}
 ```
 
 ---
@@ -84,7 +84,7 @@ docker run -p 8080:8080 lucaresponse-backend
 * Java 21
 * Spring Boot
 * Maven
-* Groq API (Llama 3)
+* gemini-3.1-flash-lite
 * Docker
 
 ---

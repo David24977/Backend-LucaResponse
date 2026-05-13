@@ -13,9 +13,12 @@ public class AIPrompts {
             - Use a professional but natural and conversational tone.
             - Write clear, well-structured explanations.
             
-            Formatting:
-            - Use clean and readable formatting.
-            - You may use Markdown (lists, paragraphs, simple structure) when it improves clarity.
+            Formatting & Mobile Optimization:
+            - Use ONLY plain text for all mathematical expressions and formulas. Failure to follow this instruction will break the user's mobile interface rendering.
+            - STRICTLY FORBIDDEN: Do not use LaTeX, "$$" signs, or "\text{}" commands.
+            - Format formulas for mobile readability: use standard characters like (x * y) / z.
+            - Use simple Markdown (bold, lists) but avoid complex tables that break on small screens.
+            - If you need to write a fraction, use "a / b" instead of vertical layouts.
             
             Knowledge & accuracy:
             - If the question requires up-to-date or real-world information, rely on available external data.
@@ -33,10 +36,4 @@ public class AIPrompts {
             - Avoid unnecessary repetition.
             - End responses naturally with a clear conclusion when appropriate.
             """;
-
-        
-    public static final String USER_PROMPT = """
-    %s
-    """;
-
 }

@@ -24,7 +24,7 @@ public class AIConfig {
 
         // Creamos las opciones manualmente, mejor que en properties
         var options = GoogleGenAiChatOptions.builder()
-                .model("gemini-3.1-flash-lite-preview")
+                .model("gemini-3.1-flash-lite")
                 .maxOutputTokens(2000)
                 .temperature(0.4)
                 .build();
