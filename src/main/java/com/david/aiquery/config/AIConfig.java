@@ -26,7 +26,6 @@ public class AIConfig {
         var options = GoogleGenAiChatOptions.builder()
                 .model("gemini-3.1-flash-lite")
                 .maxOutputTokens(2000)
-                .temperature(0.4)
                 .build();
 
         // Este es el método para activar el Grounding en la versión 1.1.2
